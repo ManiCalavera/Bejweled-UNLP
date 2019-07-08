@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Bejeweled</string>
+    <item name="i" type="id" />
+    <item name="j" type="id" />
+    <item name="imagen" type="id" />
+    <string name="btn_terminar">Terminar</string>
+    <string name="btn_refrescar">Refrescar</string>
+    <string name="Top_10">Top 10</string>
+    <string name="Puntaje">Puntaje: </string>
+    <string name="Salir">Salir</string>
+    <string name="Titulo">Bejeweled</string>
+    <string name="BotonJugar">Jugar</string>
+    <string name="usuarionulo">-</string>
+    <string name="puntajenulo">0</string>
+    <string name="top">top10</string>
+
+</resources>
