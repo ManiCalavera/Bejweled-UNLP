@@ -2,6 +2,7 @@ package com.vogella.android.entregan1;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -377,6 +378,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         refrescar = findViewById(R.id.mainactivity_btn1);
         refrescar.setAlpha(0.5f);
         terminar = findViewById(R.id.mainactivity_btn2);
+        terminar.setAlpha(0.5f);
         textview_puntaje = findViewById(R.id.numero);
         textview_puntaje.setText(String.valueOf(puntaje));
     }
@@ -1068,6 +1070,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             finish();
+                            Intent intent = new Intent (MainActivity.this, Activity_Ranking.class);
+                            startActivity(intent);
                         }
                     })
 
@@ -1087,6 +1091,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     try {
                                         if (convertiryguardarjasonyguardarpreferencias()) {
                                             finish();
+                                            Intent intent = new Intent (MainActivity.this, Activity_Ranking.class);
+                                            startActivity(intent);
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
