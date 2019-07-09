@@ -13,7 +13,10 @@
         android:theme="@style/AppTheme"
 
         >
-        <activity android:name=".Activity_Ranking"></activity>
+        <activity android:name=".Activity_Ranking">
+            android:parentActivityName=".Menu"
+
+        </activity>
         <activity android:name=".Menu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -15,6 +15,8 @@ public class Menu extends AppCompatActivity implements android.view.Menu {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+
     }
 
     public void arrancarjuego(View v){

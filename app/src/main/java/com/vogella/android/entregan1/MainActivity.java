@@ -27,6 +27,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
 
 
@@ -123,6 +125,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                new AlertDialog.Builder(this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Volver")
+                        .setMessage("Desea volver al menu pricipal?")
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                finish();
+                            }
+
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
     @Override
@@ -405,7 +431,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
 
-
         if (terminar.getId() != v.getId()) {
             clicks++;
 
@@ -474,13 +499,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 clicks = 0;
 
             }
-        }
-        else {
-            try {
-                evaluarpuntaje();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        } else {
+
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Terminar juego")
+                    .setMessage("¿Desea salir del juego?")
+                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            try {
+                                evaluarpuntaje();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+
+
         }
     }
 
@@ -1048,7 +1088,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             alertbuilder.setCancelable(true)
                     .setTitle("Felicidades!")
-                    .setMessage("Tu puntaje se encuentra entre los primeros 10, ingresa tu nombre para figurar en el ranking")
+                    .setMessage("Tu puntaje se encuentra entre los primeros 10. Ingresa tu nombre para figurar en el ranking")
                     .setNegativeButton("No quiero figurar", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
