@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.vogella.android.entregan1">
 
     <application
@@ -12,10 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
 
-        >
-        <activity android:name=".Activity_Ranking">
-            android:parentActivityName=".Menu"
-
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Activity_Ranking"
+            android:parentActivityName=".Menu">
         </activity>
         <activity android:name=".Menu">
             <intent-filter>
@@ -26,7 +26,9 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".Menu">
+            android:parentActivityName=".Menu"
+            android:screenOrientation="portrait"
+            >
 
         </activity>
     </application>

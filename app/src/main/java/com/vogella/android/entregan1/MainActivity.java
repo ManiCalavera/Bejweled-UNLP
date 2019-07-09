@@ -7,13 +7,10 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,11 +19,9 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Objects;
 
 
@@ -41,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView textview_puntaje;
     private int i1, i2, j1, j2;
     private int[][] matriz = new int[8][8];
-    //private int [][] matrizvertical = new int[8][8];
     private int idimagenclick1 = -2;
     private int idimagenclick2;
     private int cant = -25;
@@ -401,7 +395,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (int i = 0; i <= 7; i++) {
             for (int j = 0; j <= 7; j++) {
 
-                /*
+
+
+/*
                 //***********estas lineas de código son para generar una pantalla sin movimientos posibles***
 
                 if (contador < 5){
@@ -412,11 +408,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 randomimage = contador;
-                    */
 
 
 
+*/
+                //Comentar la siguiente linea de código para generar una pantalla sin movimientos posibles
                 randomimage = (int) (Math.random() * 6);
+
+
                 imageview = (ImageView) gridLayout.getChildAt((i * 8) + j);
                 imageview.setImageResource(images[randomimage]);
                 imageview.setTag(R.id.j, j);
@@ -426,6 +425,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+
+    private boolean desordenarimagenes () {
+
+        int randomimage;
+        ImageView imageview;
+
+        for (int i = 0; i <= 7; i++) {
+            for (int j = 0; j <= 7; j++) {
+
+
+
+
+
+
+                //reemplazo cada gema por otra del tablero
+                randomimage = (int) (Math.random() * 64);
+                imageview = (ImageView) gridLayout.getChildAt((i * 8) + j);
+                imageview.setImageResource(images[matriz [randomimage / 8] [mod(randomimage)]]);
+                imageview.setTag(R.id.imagen, matriz[randomimage / 8] [mod(randomimage)] );
+                matriz[i][j] = matriz[randomimage / 8] [mod(randomimage)];
+            }
+        }
+        return true;
+    }
+
+
 
     @Override
     public void onClick(View v) {
@@ -814,6 +839,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     if (sigojugando()) {
                                         setclickeable();
                                     }
+                                    else {
+                                        refrescar.setAlpha(1f);
+                                        refrescar.setClickable(true);
+                                        refrescar.setEnabled(true);
+                                        refrescar.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+
+                                                refrescar.setOnClickListener(null);
+                                                refrescar.setClickable(false);
+                                                refrescar.setEnabled(false);
+                                                refrescar.setAlpha(0.5f);
+                                                mostrarMatriz();
+
+                                                if (desordenarimagenes()){
+                                                    mostrarMatriz();
+                                                    limpiartablerodecoincidencias();
+                                                }
+                                            }
+                                        });
+                                        Toast.makeText(MainActivity.this, "No hay más movimientos", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
 
                             }
@@ -1018,18 +1065,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         System.out.println("Sigo jugando es : " + sigojugando + " gracias a la view: " + posicion);
-        if (!sigojugando){
-            refrescar.setAlpha(1f);
-            refrescar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    recreate();
-                }
-            });
-            Toast.makeText(this, "No hay más movimientos", Toast.LENGTH_SHORT).show();
-        }
+
         return sigojugando;
     }
+
+
 
 
 
