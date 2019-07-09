@@ -58,7 +58,11 @@ public class Activity_Ranking extends AppCompatActivity {
         Intent i = new Intent();
         i.setType("tex/plain");
         i.setAction(Intent.ACTION_SEND);
-        i.putExtra(Intent.EXTRA_TEXT, leerpreferencias());
+        try {
+            i.putExtra(Intent.EXTRA_TEXT, generarCompartida());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         shareActionProvider.setShareIntent(i);
 
@@ -74,9 +78,9 @@ public class Activity_Ranking extends AppCompatActivity {
             case android.R.id.home:
                 new AlertDialog.Builder(this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("Volver")
-                        .setMessage("Desea volver al menu pricipal?")
-                        .setPositiveButton("Si", new DialogInterface.OnClickListener()
+                        .setTitle(Activity_Ranking.this.getString(R.string.Titulo_volver))
+                        .setMessage(Activity_Ranking.this.getString(R.string.Mensaje_volver))
+                        .setPositiveButton(Activity_Ranking.this.getString(R.string.Positive_buton), new DialogInterface.OnClickListener()
                         {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -85,7 +89,7 @@ public class Activity_Ranking extends AppCompatActivity {
                             }
 
                         })
-                        .setNegativeButton("No", null)
+                        .setNegativeButton(Activity_Ranking.this.getString(R.string.Negative_buton), null)
                         .show();
                 return true;
         }
@@ -106,21 +110,42 @@ public class Activity_Ranking extends AppCompatActivity {
 
     public void infoaJson() throws JSONException {
         String info = leerpreferencias();
-        if(!info.equals("vacio") ){
+        if (!info.equals("vacio")) {
             JSONObject TABLA = new JSONObject(info);
             JSONArray integrantes = TABLA.getJSONArray("jugadores");
-            for(int i=0;i<rank.length;i++){
+            for (int i = 0; i < rank.length; i++) {
                 JSONObject integrante = integrantes.getJSONObject(i);
-                Puntajes jugador = new Puntajes(integrante.getString("nombre"),integrante.getInt("puntaje"));
-                rank[i]= jugador;
-                System.out.print("el nombre del integrante numero "+i+" es  "+rank[i].getUsuario());
-                System.out.println(" y su puntaje es:  "+rank[i].getPuntaje());
+                Puntajes jugador = new Puntajes(integrante.getString("nombre"), integrante.getInt("puntaje"));
+                rank[i] = jugador;
+                System.out.print("el nombre del integrante numero " + i + " es  " + rank[i].getUsuario());
+                System.out.println(" y su puntaje es:  " + rank[i].getPuntaje());
             }
 
-        }
+        } else {
+            Puntajes r0 = new Puntajes("-", 0);
 
+            Puntajes r1 = new Puntajes("-", 0);
 
+            Puntajes r2 = new Puntajes("-", 0);
+
+            Puntajes r3 = new Puntajes("-", 0);
+
+            Puntajes r4 = new Puntajes("-", 0);
+
+            Puntajes r5 = new Puntajes("-", 0);
+
+            Puntajes r6 = new Puntajes("-", 0);
+
+            Puntajes r7 = new Puntajes("-", 0);
+
+            Puntajes r8 = new Puntajes("-", 0);
+
+            Puntajes r9 = new Puntajes("-", 0);
+
+            Puntajes[] r = {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9};
+            rank = r;
         }
+    }
 
         public void generartabla(){
             int pun= rank[0].getPuntaje();
@@ -183,6 +208,17 @@ public class Activity_Ranking extends AppCompatActivity {
 
             TextView pos20 = (TextView) findViewById(R.id.activity_ranking_tv20);
             pos20.setText(Integer.toString(rank[9].getPuntaje()));
+    }
+
+
+    public String generarCompartida() throws JSONException {
+        String nom = "RANKING DEL JUEGO "+"\n"+"\n";
+        for(int i=0;i<10;i++){
+            nom=nom+rank[i].toString()+"   "+" \n";
+
+        }
+        System.out.println("esto vamos a pasar bro  "+nom);
+        return nom;
     }
 
 

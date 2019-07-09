@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bejeweled</string>
+    <string name="BotonJugar">Play</string>
+    <string name="Boton_Ranking">Ranking</string>
+    <string name="Content_description">ContentDescription</string>
+    <string name="Mensaje_Felicidades">Your scroe is high! Enter your name in order to appear in the Ranking</string>
+    <string name="Mensaje_terminarjuego">Are you sure you want to finish the game?</string>
+    <string name="Mensaje_volver">Do you want to return to the main menu?</string>
+    <string name="Negative_buton">No</string>
+    <string name="Negative_noquierofigurar">I don\'t want to appear in the Ranking</string>
+    <string name="Positive_OK">OK</string>
+    <string name="Positive_buton">Yes</string>
+    <string name="Puntaje">Score:</string>
+    <string name="Salir">Exit</string>
+    <string name="Titulo_Felicidades">Congratulations!</string>
+    <string name="Titulo_terminarjuego">Finish</string>
+    <string name="Titulo_volver">Return</string>
+    <string name="Toast_movimientonoválido">Ups! invalid movement</string>
+    <string name="Toast_noquedanjugadas">There is no posible movements!</string>
+    <string name="Toast_puntajebajo">Your score is not high enough</string>
+    <string name="Top_10">Top 10</string>
+    <string name="btn_refrescar">Refresh</string>
+    <string name="btn_terminar">Exit</string>
+    <string name="compartir">Share</string>
+    <string name="hint_perdir_usuario">Enter your name</string>
+    <string name="puntajenulo">0</string>
+    <string name="top">top10</string>
+    <string name="usuarionulo">-</string>
+</resources>

@@ -126,9 +126,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case android.R.id.home:
                 new AlertDialog.Builder(this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("Volver")
-                        .setMessage("Desea volver al menu pricipal?")
-                        .setPositiveButton("Si", new DialogInterface.OnClickListener()
+                        .setTitle(MainActivity.this.getString(R.string.Titulo_volver))
+                        .setMessage(MainActivity.this.getString(R.string.Mensaje_volver))
+                        .setPositiveButton(MainActivity.this.getString(R.string.Positive_buton), new DialogInterface.OnClickListener()
                         {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }
 
                         })
-                        .setNegativeButton("No", null)
+                        .setNegativeButton(MainActivity.this.getString(R.string.Negative_buton), null)
                         .show();
                 return true;
         }
@@ -148,9 +148,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Volver")
-                .setMessage("Desea volver al menu pricipal?")
-                .setPositiveButton("Si", new DialogInterface.OnClickListener()
+                .setTitle(MainActivity.this.getString(R.string.Titulo_volver))
+                .setMessage(MainActivity.this.getString(R.string.Mensaje_volver))
+                .setPositiveButton(MainActivity.this.getString(R.string.Positive_buton), new DialogInterface.OnClickListener()
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
 
                 })
-                .setNegativeButton("No", null)
+                .setNegativeButton(MainActivity.this.getString(R.string.Negative_buton), null)
                 .show();
     }
 
@@ -201,25 +201,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String vec = leerpreferencias();
         if (vec.equals("vacio")) {
 
-            Puntajes r0 = new Puntajes("nombre", 0);
+            Puntajes r0 = new Puntajes("-", 0);
 
-            Puntajes r1 = new Puntajes("nombre", 0);
+            Puntajes r1 = new Puntajes("-", 0);
 
-            Puntajes r2 = new Puntajes("nombre", 0);
+            Puntajes r2 = new Puntajes("-", 0);
 
-            Puntajes r3 = new Puntajes("nombre", 0);
+            Puntajes r3 = new Puntajes("-", 0);
 
-            Puntajes r4 = new Puntajes("nombre", 0);
+            Puntajes r4 = new Puntajes("-", 0);
 
-            Puntajes r5 = new Puntajes("nombre", 0);
+            Puntajes r5 = new Puntajes("-", 0);
 
-            Puntajes r6 = new Puntajes("nombre", 0);
+            Puntajes r6 = new Puntajes("-", 0);
 
-            Puntajes r7 = new Puntajes("nombre", 0);
+            Puntajes r7 = new Puntajes("-", 0);
 
-            Puntajes r8 = new Puntajes("nombre", 0);
+            Puntajes r8 = new Puntajes("-", 0);
 
-            Puntajes r9 = new Puntajes("nombre", 0);
+            Puntajes r9 = new Puntajes("-", 0);
 
             Puntajes[] r = {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9};
             rank = r;
@@ -499,7 +499,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         matriz[i2][j2] = idimagenclick2;
                         System.out.println("estoy adentro del if barridos son verdaderos y los clicks son " + idimagenclick1 + " y " + idimagenclick2);
 
-                        Toast.makeText(MainActivity.this, "Ups! movimiento no válido", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, MainActivity.this.getString(R.string.Toast_movimientonoválido), Toast.LENGTH_SHORT).show();
                         setclickeable();
 
                     } else { //si el movimiento está en rango y provoca coincidencias, se hace el intercambio de imágenes
@@ -516,7 +516,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 } else { //el movimiento que se hizo no está en rango
-                    Toast.makeText(MainActivity.this, "Ups! movimiento no válido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, MainActivity.this.getString(R.string.Toast_movimientonoválido), Toast.LENGTH_SHORT).show();
                     setclickeable();
 
                 }
@@ -528,9 +528,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             new AlertDialog.Builder(this)
-                    .setTitle("Terminar juego")
-                    .setMessage("¿Desea salir del juego?")
-                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    .setTitle(MainActivity.this.getString(R.string.Titulo_terminarjuego))
+                    .setMessage(MainActivity.this.getString(R.string.Mensaje_terminarjuego))
+                    .setPositiveButton(MainActivity.this.getString(R.string.Positive_buton), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
@@ -542,7 +542,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
 
                     })
-                    .setNegativeButton("No", null)
+                    .setNegativeButton(MainActivity.this.getString(R.string.Negative_buton), null)
                     .show();
 
 
@@ -859,7 +859,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                                 }
                                             }
                                         });
-                                        Toast.makeText(MainActivity.this, "No hay más movimientos", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, MainActivity.this.getString(R.string.Toast_noquedanjugadas), Toast.LENGTH_SHORT).show();
                                     }
                                 }
 
@@ -1127,9 +1127,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             final EditText usuario = view.findViewById(R.id.dialog_et_usuario);
 
             alertbuilder.setCancelable(true)
-                    .setTitle("Felicidades!")
-                    .setMessage("Tu puntaje se encuentra entre los primeros 10. Ingresa tu nombre para figurar en el ranking")
-                    .setNegativeButton("No quiero figurar", new DialogInterface.OnClickListener() {
+                    .setTitle(MainActivity.this.getString(R.string.Titulo_Felicidades))
+                    .setMessage(MainActivity.this.getString(R.string.Mensaje_Felicidades))
+                    .setNegativeButton(MainActivity.this.getString(R.string.Negative_noquierofigurar), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             finish();
@@ -1138,7 +1138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     })
 
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(MainActivity.this.getString(R.string.Positive_OK), new DialogInterface.OnClickListener() {
 
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -1168,7 +1168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             dialog.show();
         }
         else{
-            Toast.makeText(this,"Tu puntaje es muy bajo para participar en el Ranking", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,MainActivity.this.getString(R.string.Toast_puntajebajo), Toast.LENGTH_SHORT).show();
             finish();
         }
 

@@ -24,4 +24,10 @@ public class Puntajes {
         this.usuario = usuario;
         this.puntaje = puntaje;
     }
+
+    @Override
+    public String toString() {
+        return
+                usuario + " : " + puntaje+" \n";
+    }
 }

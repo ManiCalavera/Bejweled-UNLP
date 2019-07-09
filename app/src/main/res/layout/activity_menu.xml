@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="119dp"
         android:gravity="center"
-        android:text="BEJEWELED"
+        android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="36sp" />
 
@@ -21,13 +21,14 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        app:srcCompat="@drawable/blue" />
+        app:srcCompat="@drawable/blue"
+        tools:ignore="ContentDescription" />
 
     <Button
         android:id="@+id/jugar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Jugar"
+        android:text="@string/BotonJugar"
         android:textSize="30sp"
         android:onClick="arrancarjuego"/>
 
@@ -35,7 +36,7 @@
         android:id="@+id/rank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ranking"
+        android:text="@string/Boton_Ranking"
         android:textSize="30sp"
         android:onClick="showmeRank"/>
 

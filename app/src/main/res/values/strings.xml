@@ -8,12 +8,27 @@
     <string name="Top_10">Top 10</string>
     <string name="Puntaje">Puntaje: </string>
     <string name="Salir">Salir</string>
-    <string name="Titulo">Bejeweled</string>
     <string name="BotonJugar">Jugar</string>
     <string name="usuarionulo">-</string>
     <string name="puntajenulo">0</string>
     <string name="top">top10</string>
     <string name="compartir">Compartir</string>
+    <string name="Boton_Ranking">Ranking</string>
+    <string name="Content_description">ContentDescription</string>
+    <string name="hint_perdir_usuario">Ingrese aquí su usuario</string>
+    <string name="Titulo_volver">Volver</string>
+    <string name="Mensaje_volver">¿Desea volver al menú principal?</string>
+    <string name="Positive_buton">Si</string>
+    <string name="Negative_buton">No</string>
+    <string name="Titulo_terminarjuego">Terminar juego</string>
+    <string name="Mensaje_terminarjuego">¿Desea terminar el juego?</string>
+    <string name="Titulo_Felicidades">¡Felicidades!</string>
+    <string name="Mensaje_Felicidades">Tu puntaje se encuentra entre los primeros 10. Ingresa tu nombre para figurar en el ranking</string>
+    <string name="Negative_noquierofigurar">No quiero figurar en el ranking</string>
+    <string name="Positive_OK">OK</string>
+    <string name="Toast_puntajebajo">Tu puntaje es  muy bajo para figurar en el ranking</string>
+    <string name="Toast_movimientonoválido">Ups! el movimiento no es válido</string>
+    <string name="Toast_noquedanjugadas">Ya no quedan jugadas posibles</string>
 
 
 </resources>

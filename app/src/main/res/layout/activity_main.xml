@@ -14,7 +14,8 @@
         app:layout_constraintBottom_toTopOf="@id/mainactivity_guideline"
         app:layout_constraintLeft_toRightOf="@id/Puntaj"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:id="@+id/Puntaj"
@@ -86,93 +87,110 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            tools:ignore="ContentDescription" />
 
         <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1" />
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1" />
-
-        <ImageView
+            tools:ignore="ContentDescription"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
