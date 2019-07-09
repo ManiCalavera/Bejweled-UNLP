@@ -7,9 +7,13 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -55,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button terminar;
     private JSONObject Tabla = new JSONObject();
     private Puntajes  []rank = new Puntajes [10];
+    ShareActionProvider shareActionProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
 
         try {
@@ -83,6 +89,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+
+
+
+
+
+
+
+
     private String leerpreferencias(){
         SharedPreferences preferencias = getSharedPreferences("ID",MODE_PRIVATE);
         String vec = preferencias.getString("to","vacio");
@@ -94,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-    private boolean guardarpreferencias(){
+    private void guardarpreferencias(){
         SharedPreferences preferencias = getSharedPreferences("ID",MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();
         editor.putString("to",Tabla.toString());
@@ -105,34 +119,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         System.out.println("La informacion fue guardada fue :  "+vec);
 
-        return true;
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
-            case android.R.id.home:
-                new AlertDialog.Builder(this)
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("Volver")
-                        .setMessage("Desea volver al menu pricipal?")
-                        .setPositiveButton("Si", new DialogInterface.OnClickListener()
-                        {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                finish();
-                            }
-
-                        })
-                        .setNegativeButton("No", null)
-                        .show();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 
 
@@ -155,13 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void setonclick() {
 
-        for (int i = 0; i < 64; i++) {
-
-            gridLayout.getChildAt(i).setOnClickListener(this);
-        }
-    }
 
     private void unsetclickeable() {
         clickisenabled= false;

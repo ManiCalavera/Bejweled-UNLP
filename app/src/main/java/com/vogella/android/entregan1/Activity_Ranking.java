@@ -1,9 +1,17 @@
 package com.vogella.android.entregan1;
 
-import android.annotation.SuppressLint;
+
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ShareActionProvider;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -14,6 +22,7 @@ public class Activity_Ranking extends AppCompatActivity {
 
 
     private Puntajes [] rank = new Puntajes[10];
+    ShareActionProvider shareActionProvider;
 
 
 
@@ -30,6 +39,54 @@ public class Activity_Ranking extends AppCompatActivity {
         generartabla();
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu) {
+        getMenuInflater().inflate(R.menu.menuactionbar, menu);
+
+        // Obtener el item de menu que se desea configurar
+        MenuItem item = menu.findItem(R.id.action_share);
+
+        // Obtener el ShareActionProvider asociado al item de menu
+        shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+
+        Intent i = new Intent();
+        i.setType("tex/plain");
+        i.setAction(Intent.ACTION_SEND);
+        i.putExtra(Intent.EXTRA_TEXT, leerpreferencias());
+
+        shareActionProvider.setShareIntent(i);
+
+
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                new AlertDialog.Builder(this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Volver")
+                        .setMessage("Desea volver al menu pricipal?")
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                finish();
+                            }
+
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
 
 
