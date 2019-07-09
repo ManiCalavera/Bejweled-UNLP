@@ -46,7 +46,9 @@
         app:layout_constraintBottom_toTopOf="@id/activity_MainActivity_blue"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_MainActivity_jugar" />
+        app:layout_constraintTop_toBottomOf="@id/activity_MainActivity_jugar"
+        android:onClick="showmeRank"
+        />
 
     <ImageView
         android:id="@+id/activity_MainActivity_yellow"
@@ -121,6 +123,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/Salir"
+        android:onClick="Salir"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

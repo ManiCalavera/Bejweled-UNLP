@@ -29,6 +29,10 @@ public class Menu extends AppCompatActivity implements android.view.Menu {
         startActivity(i);
     }
 
+    public void Salir (View v){
+        finish();
+    }
+
     @Override
     public MenuItem add(CharSequence title) {
         return null;

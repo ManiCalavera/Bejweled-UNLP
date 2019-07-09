@@ -73,7 +73,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         loadviews();
 
-        loadimages();
+        loadimages();  //Comentar este método para generar un tablero sin movimientos
+
+        //loadimagessinmovimientosposibles();  //Descomentar este método para generar un tablero sin movimientos
 
         haycoincidencia=haycoincidencia();
         limpiartablerodecoincidencias();
@@ -387,7 +389,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loadimages() {
-        //int contador = -1; //esta linea de código es para generar una pantalla sin movimientos posibles
+
 
         int randomimage;
         ImageView imageview;
@@ -397,8 +399,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-/*
-                //***********estas lineas de código son para generar una pantalla sin movimientos posibles***
+                randomimage = (int) (Math.random() * 6);
+
+
+                imageview = (ImageView) gridLayout.getChildAt((i * 8) + j);
+                imageview.setImageResource(images[randomimage]);
+                imageview.setTag(R.id.j, j);
+                imageview.setTag(R.id.i, i);
+                imageview.setTag(R.id.imagen, randomimage);
+                matriz[i][j] = (randomimage);
+            }
+        }
+    }
+
+
+
+    private void loadimagessinmovimientosposibles() {
+
+
+
+        //Este método solo debe ser llamado para generar una pantalla sin movimientos posibles
+
+        int contador = -1;
+
+        int randomimage;
+        ImageView imageview;
+
+        for (int i = 0; i <= 7; i++) {
+            for (int j = 0; j <= 7; j++) {
+
+
 
                 if (contador < 5){
                     contador++;
@@ -411,9 +441,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-*/
-                //Comentar la siguiente linea de código para generar una pantalla sin movimientos posibles
-                randomimage = (int) (Math.random() * 6);
+
+
 
 
                 imageview = (ImageView) gridLayout.getChildAt((i * 8) + j);
